@@ -7,7 +7,7 @@
     <groupId>com.mmc</groupId>
     <artifactId>parentweb</artifactId>
     <version>0.01-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <!-- 父级项目 -->
     <parent>
@@ -24,22 +24,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!-- springmvc -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -49,10 +33,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <!--<scope>provided</scope>-->
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>parentweb</finalName>
+        <finalName>index</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
@@ -61,7 +50,6 @@
                     <configuration>
                         <fork>true</fork>
                         <addResources>true</addResources>
-                        <mainClass>com.mmc.parentweb.QuartzApplication</mainClass>
                     </configuration>
                     <executions>
                         <execution>
@@ -70,18 +58,6 @@
                             </goals>
                         </execution>
                     </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <configuration>
-                        <excludes>
-<!--                            <exclude>Application.class</exclude>-->
-<!--                            <exclude>**/static/**</exclude>-->
-<!--                            <exclude>**/templates/**</exclude>-->
-                            <exclude>**/*.yml</exclude>
-                        </excludes>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
