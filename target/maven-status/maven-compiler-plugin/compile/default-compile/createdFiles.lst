@@ -1,2 +1,3 @@
+com/mmc/parentweb/config/WebMvcConfig.class
 com/mmc/parentweb/controller/IndexController.class
 com/mmc/parentweb/ParentWebApplication.class
